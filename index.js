@@ -45,6 +45,15 @@ Strategy.prototype.userProfile = function (accessToken, done) {
         avatar: json.avatar,
         realm: this.options.realm,
         adressStreet: json.adressStreet,
+        adressHouseNumber: json.adressHouseNumber,
+        adressPostalCode: json.adressPostalCode,
+        adressCity: json.adressCity,
+        adressCountry: json.adressCountry,
+        phoneBusinessMobile: json.phoneBusinessMobile,
+        phoneBusinessInternal: json.phoneBusinessInternal,
+        phoneBusinessLandline: json.phoneBusinessLandline,
+        phonePrivateMobile: json.phonePrivateMobile,
+        phonePrivateHome: json.phonePrivateHome,
       };
 
       done(null, userInfo);
