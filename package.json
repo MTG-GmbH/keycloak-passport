@@ -1,5 +1,5 @@
 {
-  "name": "@exlinc/keycloak-passport",
+  "name": "@mtggmbh/keycloak-passport",
   "version": "1.0.2",
   "description": "Flexible Keycloak Passport strategy (with multi-realm support) by EXL Inc.",
   "main": "index.js",
