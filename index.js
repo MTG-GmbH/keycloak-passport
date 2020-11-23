@@ -44,6 +44,7 @@ Strategy.prototype.userProfile = function (accessToken, done) {
         email,
         avatar: json.avatar,
         realm: this.options.realm,
+        adressStreet: json.adressStreet,
       };
 
       done(null, userInfo);
