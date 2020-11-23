@@ -49,11 +49,11 @@ Strategy.prototype.userProfile = function (accessToken, done) {
         adressPostalCode: json.adress.postal_code,
         adressCity: json.adress.city,
         adressCountry: json.adress.country,
-        phoneBusinessMobile: json.phone.business_mobile,
-        phoneBusinessInternal: json.phone.business_internal,
-        phoneBusinessLandline: json.phone.business_landline,
-        phonePrivateMobile: json.phone.private_mobile,
-        phonePrivateHome: json.phone.private_home,
+        phoneBusinessMobile: json.phone.business.mobile,
+        phoneBusinessInternal: json.phone.business.internal,
+        phoneBusinessLandline: json.phone.business.landline,
+        phonePrivateMobile: json.phone.private.mobile,
+        phonePrivateHome: json.phone.private.home,
       };
 
       done(null, userInfo);
