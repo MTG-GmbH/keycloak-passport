@@ -44,19 +44,29 @@ Strategy.prototype.userProfile = function (accessToken, done) {
         email,
         avatar: json.avatar,
         realm: this.options.realm,
-        addressStreet: json.address.street || null,
-        addressHouseNumber: json.address.house_number || null,
-        addressPostalCode: json.address.postal_code || null,
-        addressCity: json.address.city || null,
-        addressCountry: json.address.country || null,
-        phoneBusinessMobile: json.phone.business.mobile || null,
-        phoneBusinessInternal: json.phone.business.internal || null,
-        phoneBusinessLandline: json.phone.business.landline || null,
-        phonePrivateMobile: json.phone.private.mobile || null,
-        phonePrivateHome: json.phone.private.home || null,
+        addressStreet: json.address.street,
+        addressHouseNumber: json.address.house_number,
+        addressPostalCode: json.address.postal_code,
+        addressCity: json.address.city,
+        addressCountry: json.address.country,
+        phoneBusinessMobile: json.phone.business.mobile,
+        phoneBusinessInternal: json.phone.business.internal,
+        phoneBusinessLandline: json.phone.business.landline,
+        phonePrivateMobile: json.phone.private.mobile,
+        phonePrivateHome: json.phone.private.home,
       };
 
-      done(null, userInfo);
+      for (var prop in userInfo) {
+        if (Object.prototype.hasOwnProperty.call(obj, prop)) {
+            if(prop === undefined) {
+              obj = null;
+            }
+        }
+    }
+
+      const userInfoFinal = {additionalUserInfo, userInfo};
+
+      done(null, userInfoFinal);
     } catch (e) {
       done(e);
     }
