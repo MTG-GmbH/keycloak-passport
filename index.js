@@ -59,14 +59,16 @@ Strategy.prototype.userProfile = function (accessToken, done) {
       for (var prop in userInfo) {
         if (Object.prototype.hasOwnProperty.call(obj, prop)) {
             if(prop === undefined) {
-              obj = null;
+              userInfo.obj = null;
+              console.log(prop);
+              console.log(obj);
+              console.log(userInfo.obj);
             }
         }
-    }
+      }
 
-      const userInfoFinal = {additionalUserInfo, userInfo};
 
-      done(null, userInfoFinal);
+      done(null, userInfo);
     } catch (e) {
       done(e);
     }
