@@ -35,7 +35,22 @@ Strategy.prototype.userProfile = function (accessToken, done) {
     try {
       const json = JSON.parse(body);
       const email = json.email;
-      const userInfo = {
+
+      const userInfoDefault = {
+        addressStreet: "",
+        addressHouseNumber: "",
+        addressPostalCode: "",
+        addressCity: "",
+        addressCountry: "",
+        phoneBusinessMobile: "",
+        phoneBusinessInternal: "",
+        phoneBusinessLandline: "",
+        phonePrivateMobile: "",
+        phonePrivateHome: "",
+      }
+
+
+      const userInfoUnsafe = {
         keycloakId: json.sub,
         fullName: json.name,
         firstName: json.given_name,
@@ -44,7 +59,7 @@ Strategy.prototype.userProfile = function (accessToken, done) {
         email,
         avatar: json.avatar,
         realm: this.options.realm,
-        addressStreet: json.address.street,
+        addressStreet: json.address.street || "",
         addressHouseNumber: json.address.house_number,
         addressPostalCode: json.address.postal_code,
         addressCity: json.address.city,
@@ -56,15 +71,13 @@ Strategy.prototype.userProfile = function (accessToken, done) {
         phonePrivateHome: json.phone.private.home,
       };
 
-      for (var prop in userInfo) {
-        if (Object.prototype.hasOwnProperty.call(obj, prop)) {
-            if(prop === undefined) {
-              userInfo.obj = null;
-              console.log(prop);
-              console.log(obj);
-              console.log(userInfo.obj);
-            }
-        }
+      const userInfo = {
+        ...userInfoDefault,
+        ...userInfoUnsafe
+      };
+
+      for(var prop in userInfo) {
+        console.log("o." + prop + " = " + obj[prop]);
       }
 
 
