@@ -72,8 +72,8 @@ Strategy.prototype.userProfile = function (accessToken, done) {
       };
 
       const userInfo = {
+        ...userInfoUnsafe,
         ...userInfoDefault,
-        ...userInfoUnsafe
       };
 
       console.log(userInfo);
