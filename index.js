@@ -59,7 +59,7 @@ Strategy.prototype.userProfile = function (accessToken, done) {
         email,
         avatar: json.avatar,
         realm: this.options.realm,
-        addressStreet: json.address.street || "",
+        addressStreet: json.address.street,
         addressHouseNumber: json.address.house_number,
         addressPostalCode: json.address.postal_code,
         addressCity: json.address.city,
@@ -75,6 +75,8 @@ Strategy.prototype.userProfile = function (accessToken, done) {
         ...userInfoDefault,
         ...userInfoUnsafe
       };
+
+      console.log(userInfo);
 
       for(var prop in userInfo) {
         console.log("o." + prop + " = " + obj[prop]);
