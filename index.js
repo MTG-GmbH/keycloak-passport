@@ -34,8 +34,6 @@ Strategy.prototype.userProfile = function (accessToken, done) {
 
     try {
       const json = JSON.parse(body);
-      Logger.log(json);
-
 
       const keycloakId = json.sub;
       const fullName = json.name;
